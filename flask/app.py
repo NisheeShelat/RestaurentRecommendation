@@ -4,7 +4,7 @@ import json
 import pyrebase
 app=Flask(__name__)
 config={
-    'apiKey': "AIzaSyAlNu9nRm-KqhZufM7nzgiMvIGcalZ4gNM",
+    'apiKey': "",
     'authDomain': "dcscproject-42b0a.firebaseapp.com",
     'projectId': "dcscproject-42b0a",
     'storageBucket': "dcscproject-42b0a.appspot.com",
