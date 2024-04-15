@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Dropdown</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<style>
+    div {text-align: center;}
+    body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+.bg-text{ margin-top: 100px;}
+body, html {
+  height: 100%;
+  margin: 0;
+  
+}
+.center, label{
+    margin: auto;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+select{
+    margin: auto;
+  width: 50%;
+  
+  padding: 10px;
+}
+* {
+  box-sizing: border-box;
+}
+.bg-image {
+  /* The image used */
+  background-image: url("https://www.w3schools.com/w3images/hamburger.jpg");
+
+  /* Add the blur effect */
+  filter: blur(10px);
+  -webkit-filter: blur(8px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-text {
+    margin-top: -10px;
+  /* background-color: white;
+  color: black; */
+  color: white;
+  background-color: rgba(0,0,0, 0.5); /* Black w/opacity/see-through */
+  font-weight: bold;
+  font-size: large;
+  border: 10px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  padding: 20px;
+  padding-top: 50px;
+  text-align: center;
+  height: 350px;
+}
+button {
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  margin-left: 150px;
+  width: 50%;
+}
+
+</style>
+<body>
+      <!-- Navbar (sit on top) -->
+<div class="w3-top" >
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <a href="#home" class="w3-bar-item w3-button" style="font-weight:bold; font-size: large;">Restaurant Recommendation</a>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+          <form method="post" action="{{ url_for('logout') }}" >
+            <button class="w3-bar-item w3-button" style="background-color: black;color: white; margin: 0 0;" type="submit">Logout</button>
+          </form>
+      </div>
+    </div>
+  </div>
+    <!--<form class = "ey" method="GET" action="{{ url_for('submitForm') }}">
+    <select name="lst">
+        <option value="{{lst[0]}}" selected>{{lst[0]}}</option>
+        {% for l in lst[1:] %}
+          <option value="{{l}}">{{l}}</option>
+        {% endfor %}
+     </select>
+     <button type="submit">Submit</button>
+    </form>-->
+    <div class="bg-image"> </div>
+    <form class ="bg-text" method="post" action="{{ url_for('submitForm') }}">
+        <label for="select" >City</label>
+        <select name="lst" id="select">
+            {% for l in lst %}
+                <option value="{{ l }}">{{ l }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <br>
+        <label for="select">Cuisine</label>
+        <select name="lst1" id="select">
+            {% for l in lst1 %}
+                <option value="{{ l }}">{{ l }}</option>
+            {% endfor %}
+        </select>
+        <!-- <select name="lst2" id="select">
+            {% for l in lst2 %}
+                <option value="{{ l }}">{{ l }}</option>
+            {% endfor %}
+        </select> -->
+        <br> <br> <br> <br>
+
+        <button class="center" style="margin-top: -15px;" type="submit">SUBMIT</button>
+    </form>
+
+<!-- <select name= lst method="GET" action="/">
+    {% for l in lst %}
+    <option value= "{{l}}" SELECTED>{{l}}</option>"
+    {% endfor %}
+</select> -->
+
+</body>
+</html>

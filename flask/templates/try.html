@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>TRY</title>
+</head>
+<style>
+    div {text-align: center;}
+    body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+.container{
+    margin: auto;
+    width: 65%;
+  
+  padding: 10px;
+  padding: 16px;
+ border: 10px solid black;
+ text-align: center;
+ 
+  top: 50%;
+  left: 50%;
+  margin-top: 10px;
+}
+.container:hover{
+    background-color: black;
+    color: white;
+    border: 10px solid rgb(214, 210, 210);
+}
+.card, .card-body{
+    text-align: center;
+}
+
+</style>
+<body>
+    <!-- Navbar (sit on top) -->
+<div class="w3-top" style="margin-bottom: 70px;">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <a href="#home" class="w3-bar-item w3-button" style="font-weight:bold; font-size: large;">Restaurant Recommendation</a>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+        <form method="post" action="{{ url_for('logout') }}" >
+          <button class="w3-bar-item w3-button" style="background-color: black;color: white;" type="submit">Logout</button>
+        </form>
+    </div>
+    </div>
+  </div>
+  <!-- Header -->
+ <div class="empty" style="margin-top: 70px;">
+
+ </div>
+
+    
+    {%block body%}
+    {% for key,value in result.items() %}
+        <div class="container" >
+            <div class="row">
+                <div class="col-sm" style="text-align: center;">
+                    <div class="card" >
+                        <div class="card-body">
+                            <h3 class="card-title" style=" font-weight: bold;">Restaurant - {{ value.name }}</h3>
+                            <h4 class="card-title"> Cuisine : {{value.cuisine}} </h4>
+                            <h4 class="card-title"> Opening Hours: {{value.opening_hours}}</h4>
+                            <h4 class="card-title"> Website : {{value.website}} </h4>
+                            <h4 class="card-title"> Phone : {{value.phone}} </h4>
+                            <!-- <h4 class="card-title"> {{key}} : {{value}}</h4> -->
+                        </div>
+                        
+                </div>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+{% endblock %} 
+</body>
+</html>
